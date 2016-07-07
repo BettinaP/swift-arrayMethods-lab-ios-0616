@@ -18,7 +18,11 @@
 
 
 
+var daysOfTheWeek : [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
+for day in daysOfTheWeek {
+    print(day)
+}
 
 
 
@@ -29,8 +33,12 @@
 
 
 
+let numDaysOfTheWeek : [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
+for (index, day) in numDaysOfTheWeek.enumerate() {
+    print("\(index + 1). \(day)")
 
+}
 
 
 /*: question3
@@ -38,7 +46,13 @@
  */
 // write your code here
 
+var emptyArray: [String] = []
 
+if emptyArray.isEmpty{
+    print("This array is empty.")
+} else {
+    print("There is something in the array.")
+}
 
 
 
@@ -51,7 +65,14 @@
 // write your code here
 
 
+var reverseEmptyArray: [String] = []
 
+if !reverseEmptyArray.isEmpty{
+   print( "this array is not empty")
+} else{
+    print("this array is empty")
+
+}
 
 
 
@@ -66,7 +87,7 @@
 
 
 
-
+print(daysOfTheWeek.count)
 
 
 
@@ -76,6 +97,12 @@
 // write your code here
 
 
+daysOfTheWeek.append("Saturday")
+daysOfTheWeek.append("Sunday")
+
+for (index, day) in daysOfTheWeek.enumerate(){
+    print("\(index + 1). \(day)")
+}
 
 
 
@@ -87,10 +114,14 @@
 // write your code here
 
 
+daysOfTheWeek.removeLast()
+daysOfTheWeek.insert("Sunday", atIndex: 0)
 
+for (index, day) in daysOfTheWeek.enumerate(){
 
-
-
+    print("\(index + 1). \(day)")
+}
+// or just print(daysOfTheWeek) to do so without being numbered.
 
 
 /*: question8
@@ -99,7 +130,12 @@
 // write your code here
 
 
-
+for (index,day) in daysOfTheWeek.enumerate(){
+    daysOfTheWeek[index] = day.lowercaseString
+}
+//for day in daysOfTheWeek{
+//    print(day.lowercaseString)
+//}
 
 
 
@@ -111,6 +147,14 @@
 // write your code here
 
 
+if daysOfTheWeek.count > 5{
+        daysOfTheWeek.removeAtIndex(0)
+        daysOfTheWeek.removeAtIndex(5)
+
+} else {
+   print("No weekend.")
+
+}
 
 
 
