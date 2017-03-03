@@ -33,11 +33,10 @@ for day in daysOfTheWeek {
 
 
 
-let numDaysOfTheWeek : [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+let numDaysOfTheWeek : [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
-for (index, day) in numDaysOfTheWeek.enumerate() {
+for (index, day) in numDaysOfTheWeek.enumerated() {
     print("\(index + 1). \(day)")
-
 }
 
 
@@ -92,7 +91,7 @@ print(daysOfTheWeek.count)
 
 
 /*: question6
- ### 6. Add the two days of the weekend to the 'daysOfTheWeek array and create an enumerated loop to print the values.
+ ### 6. Add the two days of the weekend to the 'daysOfTheWeek array and create an enumeratedd loop to print the values.
  */
 // write your code here
 
@@ -100,7 +99,7 @@ print(daysOfTheWeek.count)
 daysOfTheWeek.append("Saturday")
 daysOfTheWeek.append("Sunday")
 
-for (index, day) in daysOfTheWeek.enumerate(){
+for (index, day) in daysOfTheWeek.enumerated(){
     print("\(index + 1). \(day)")
 }
 
@@ -114,10 +113,10 @@ for (index, day) in daysOfTheWeek.enumerate(){
 // write your code here
 
 
-daysOfTheWeek.removeLast()
-daysOfTheWeek.insert("Sunday", atIndex: 0)
+daysOfTheWeek.removeLast() // or remove(at:6)
+daysOfTheWeek.insert("Sunday", at: 0)
 
-for (index, day) in daysOfTheWeek.enumerate(){
+for (index, day) in daysOfTheWeek.enumerated(){
 
     print("\(index + 1). \(day)")
 }
@@ -130,12 +129,16 @@ for (index, day) in daysOfTheWeek.enumerate(){
 // write your code here
 
 
-for (index,day) in daysOfTheWeek.enumerate(){
-    daysOfTheWeek[index] = day.lowercaseString
+for (index,day) in daysOfTheWeek.enumerated(){
+    daysOfTheWeek[index] = day.lowercased()
 }
+
+//incorrect, not actually changing each day's value, must use index and assign new value:
 //for day in daysOfTheWeek{
-//    print(day.lowercaseString)
+//    day.lowercased()
 //}
+print("lowercased days: \(daysOfTheWeek)")
+
 
 
 
@@ -148,14 +151,35 @@ for (index,day) in daysOfTheWeek.enumerate(){
 
 
 if daysOfTheWeek.count > 5{
-        daysOfTheWeek.removeAtIndex(0)
-        daysOfTheWeek.removeAtIndex(5)
+        daysOfTheWeek.remove(at: 0)
+        daysOfTheWeek.remove(at: 5)
 
 } else {
    print("No weekend.")
 
 }
 
+
+var shoppingList: [String] = []
+
+let itemsNeeded: [String] = ["Bananas", "Apples", "Eggs", "Rolls"]
+
+let itemQuantities: [Int] = [6,4,12,4]
+
+
+
+func groceriesList(food:[String], quantities:[Int]) -> [String]{
+    
+    for (index, _) in food.enumerated(){
+        
+        let mergedItem = "\(quantities[index]) \(food[index])"
+        
+        shoppingList.append(mergedItem)
+    }
+    
+    return shoppingList
+}
+print(groceriesList(food: itemsNeeded, quantities: itemQuantities))
 
 
 
